@@ -9,6 +9,7 @@ RUN echo $TZ > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 # Install Python 3.12 and basic tooling
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+        build-essential \
         curl ca-certificates git && \
     rm -rf /var/lib/apt/lists/*
 
