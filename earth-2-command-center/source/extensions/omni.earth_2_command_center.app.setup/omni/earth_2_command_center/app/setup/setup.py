@@ -68,14 +68,17 @@ class SetupExtension(omni.ext.IExt):
         import omni.kit.app
         platform_info = omni.kit.app.get_app().get_platform_info()
         if platform_info['platform'].startswith('linux'):
-            import omni.kit.renderer.bind
-            renderer = omni.kit.renderer.bind.acquire_renderer_interface()
-            import omni.appwindow
-            device = renderer.get_graphics_device(omni.appwindow.get_default_app_window())
-            import omni.gpu_foundation_factory
-            driver_version = omni.gpu_foundation_factory.get_driver_version(device)
-            if driver_version[0] > 550 and tuple(driver_version) < (580, 105):
-                carb.log_error(f'Your driver version {driver_version} is not supported due to a driver bug. Make sure to use 550.x or >= 580.105')
+            try:
+                import omni.kit.renderer.bind
+                renderer = omni.kit.renderer.bind.acquire_renderer_interface()
+                import omni.appwindow
+                device = renderer.get_graphics_device(omni.appwindow.get_default_app_window())
+                import omni.gpu_foundation_factory
+                driver_version = omni.gpu_foundation_factory.get_driver_version(device)
+                if driver_version[0] > 550 and tuple(driver_version) < (580, 105):
+                    carb.log_error(f'Your driver version {driver_version} is not supported due to a driver bug. Make sure to use 550.x or >= 580.105')
+            except Exception as e:
+                carb.log_warn(f'Could not validate NVIDIA driver version: {e}')
 
         # Register Play/Pause/Stop Hotkeys for playback
         def play():
@@ -185,6 +188,8 @@ class SetupExtension(omni.ext.IExt):
 
         ext_name = omni.ext.get_extension_name(self._ext_id)
         world_texture_base_path_setting = settings.get(f"/exts/{ext_name}/worldTextureBasePath")
+        if world_texture_base_path_setting is None:
+            world_texture_base_path_setting = f"${{{ext_name}}}/data/textures/world_8k.jpg"
         if isinstance(world_texture_base_path_setting, list):
             for i,s in enumerate(world_texture_base_path_setting):
                 world_texture_base_path_setting[i] = tokens.resolve(s)

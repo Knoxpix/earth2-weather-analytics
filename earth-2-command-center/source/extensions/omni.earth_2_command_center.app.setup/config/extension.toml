@@ -78,6 +78,15 @@ exts."omni.earth_2_command_center.app.setup".dynamic_texture_cache_size = "50.0%
   "${omni.earth_2_command_center.app.setup}/data/textures/world_B2_8k.jpg",
   "${omni.earth_2_command_center.app.setup}/data/textures/world_C2_8k.jpg",
   "${omni.earth_2_command_center.app.setup}/data/textures/world_D2_8k.jpg"]
+"filter:platform"."linux-aarch64".exts."omni.earth_2_command_center.app.setup".worldTextureBasePath = [
+  "${omni.earth_2_command_center.app.setup}/data/textures/world_A1_8k.jpg",
+  "${omni.earth_2_command_center.app.setup}/data/textures/world_B1_8k.jpg",
+  "${omni.earth_2_command_center.app.setup}/data/textures/world_C1_8k.jpg",
+  "${omni.earth_2_command_center.app.setup}/data/textures/world_D1_8k.jpg",
+  "${omni.earth_2_command_center.app.setup}/data/textures/world_A2_8k.jpg",
+  "${omni.earth_2_command_center.app.setup}/data/textures/world_B2_8k.jpg",
+  "${omni.earth_2_command_center.app.setup}/data/textures/world_C2_8k.jpg",
+  "${omni.earth_2_command_center.app.setup}/data/textures/world_D2_8k.jpg"]
 
 [[test]]
 args = [
@@ -99,5 +108,4 @@ args = [
     # tests on vGPU runners
     "--/validate/pcielink/enabled=false",
 ]
-
 
