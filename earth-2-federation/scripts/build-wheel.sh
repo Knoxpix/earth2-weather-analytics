@@ -18,7 +18,7 @@ set -ex
 
 BUILD_WHEEL_OUTPUT_DIR=${BUILD_WHEEL_OUTPUT_DIR:-dist}
 
-uv sync --all-extras --dev
+uv sync --python 3.12 --all-extras --dev
 
 # Generate the federation/fed/ directory
 uv run dfm fed gen code --cleanup earth2

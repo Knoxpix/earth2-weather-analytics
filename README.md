@@ -124,6 +124,72 @@ Use the blueprint guide to build and deploy the blueprint on your machine.
     - [Overview](./docs/03_data_federation_mesh.md#overview)
     - [Developer Guide](./docs/03_data_federation_mesh.md#developer-guide)
 
+## Thailand Flood Analytics Demo
+
+This repo includes a Thailand-focused Earth-2 Command Center demo pipeline:
+**Thailand Extreme Weather & Flood Analytics Command Center**.
+
+Supported historical replay events:
+
+- `maesai_flood_2024` - Mae Sai / Chiang Rai, 2024-09-13 to 2024-09-19
+- `hatyai_flood_2025` - Hat Yai / Songkhla, 2025-11-17 to 2025-11-28
+- `dianmu_flood_2021` - Dianmu, 2021-09-23 to 2021-10-15
+- `noru_flood_2022` - Noru, 2022-09-28 to 2022-10-15
+
+Warning levels use color-coded disaster badges, not star markers:
+
+- GREEN `#2ECC71` - Normal / Monitoring only
+- YELLOW `#F1C40F` - Watch / เฝ้าระวัง
+- ORANGE `#E67E22` - Moderate risk / เสี่ยงปานกลาง
+- RED `#E74C3C` - High risk / เสี่ยงสูง
+- PURPLE `#8E44AD` - Critical / วิกฤต / เตรียมอพยพ
+
+Run from the repository root:
+
+```bash
+PYTHONPATH=src python -m thailand_flood_analytics.cli list-events
+
+PYTHONPATH=src python -m thailand_flood_analytics.cli build-replay \
+  --event-id maesai_flood_2024 \
+  --start 2024-09-13 \
+  --end 2024-09-19 \
+  --mode auto \
+  --output outputs/e2cc
+
+PYTHONPATH=src python -m thailand_flood_analytics.cli build-replay \
+  --event-id hatyai_flood_2025 \
+  --start 2025-11-17 \
+  --end 2025-11-28 \
+  --mode auto \
+  --output outputs/e2cc
+```
+
+Outputs include PNG replay layers, `warning_badges.json`, and an E2CC metadata
+manifest such as:
+
+```text
+outputs/e2cc/thailand_flood_command_center_maesai_flood_2024.json
+```
+
+In Earth-2 Command Center, load the manifest with **Add Features from MetaData
+file**. The experimental extension
+`omni.earth_2_command_center.app.thailand_flood` adds a Thailand Flood Analytics
+Panel for event/date selection, cached replay loading, pipeline execution, and
+timeline focusing.
+
+Environment variables:
+
+- `THAILAND_FLOOD_DATA_DIR` for local flood/geospatial data
+- `EARTH2STUDIO_PROJECT_DIR` for previous Earth2Studio outputs
+- `E2CC_OUTPUT_DIR` for generated E2CC manifests and image layers
+
+Fallback transparency is explicit. The output `data_mode` is one of
+`REAL_EARTH2STUDIO_INFERENCE`, `REAL_CACHED_DATASET`,
+`REAL_OBSERVATION_ONLY`, or `SYNTHETIC_DEMO_FALLBACK`.
+
+Safety disclaimer: “This is a research/demo decision-support visualization, not
+an official warning system.”
+
 ## License
 
 The Earth-2 Weather Analytics Blueprint is provided under the Omniverse License

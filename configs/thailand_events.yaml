@@ -1,0 +1,121 @@
+events:
+  - event_id: maesai_flood_2024
+    display_name: "Mae Sai Flood, Chiang Rai - 13-19 Sep 2024"
+    country: Thailand
+    aoi:
+      lat_min: 19.55
+      lat_max: 20.65
+      lon_min: 99.25
+      lon_max: 100.35
+    centroid:
+      lat: 20.43
+      lon: 99.88
+    date_range:
+      start: "2024-09-13T00:00:00Z"
+      end: "2024-09-19T23:59:59Z"
+    forecast_init_times:
+      - "2024-09-11T00:00:00Z"
+      - "2024-09-12T00:00:00Z"
+      - "2024-09-13T00:00:00Z"
+    layers:
+      rainfall_forecast: true
+      rainfall_accumulation: true
+      flood_risk: true
+      warning_badges: true
+      satellite_flood_extent: true
+    ground_truth:
+      satellite_water_extent: null
+      flood_extent_map: null
+      official_report: null
+
+  - event_id: hatyai_flood_2025
+    display_name: "Hat Yai Flood, Songkhla - 17-28 Nov 2025"
+    country: Thailand
+    aoi:
+      lat_min: 5.5
+      lat_max: 8.5
+      lon_min: 99.0
+      lon_max: 102.0
+    centroid:
+      lat: 7.008
+      lon: 100.474
+    date_range:
+      start: "2025-11-17T00:00:00Z"
+      end: "2025-11-28T23:59:59Z"
+    forecast_init_times:
+      - "2025-11-17T00:00:00Z"
+      - "2025-11-19T00:00:00Z"
+      - "2025-11-21T00:00:00Z"
+      - "2025-11-23T00:00:00Z"
+      - "2025-11-24T00:00:00Z"
+    cached_dataset_candidates:
+      - "${EARTH2STUDIO_PROJECT_DIR}/outputs/hatyai_flood_nov2025_real/run_metadata.json"
+      - "${EARTH2STUDIO_PROJECT_DIR}/outputs/hatyai_flood_nov2025/artifact_summary.json"
+    layers:
+      rainfall_forecast: true
+      rainfall_accumulation: true
+      flood_risk: true
+      warning_badges: true
+      satellite_flood_extent: true
+    ground_truth:
+      satellite_water_extent: null
+      flood_extent_map: null
+      official_report: null
+
+  - event_id: dianmu_flood_2021
+    display_name: "Dianmu Flood, Thailand - 23 Sep-15 Oct 2021"
+    country: Thailand
+    aoi:
+      lat_min: 13.0
+      lat_max: 18.5
+      lon_min: 99.0
+      lon_max: 105.5
+    centroid:
+      lat: 15.45
+      lon: 102.10
+    date_range:
+      start: "2021-09-23T00:00:00Z"
+      end: "2021-10-15T23:59:59Z"
+    forecast_init_times:
+      - "2021-09-23T00:00:00Z"
+      - "2021-09-24T00:00:00Z"
+      - "2021-09-25T00:00:00Z"
+    layers:
+      rainfall_forecast: true
+      rainfall_accumulation: true
+      flood_risk: true
+      warning_badges: true
+      satellite_flood_extent: true
+    ground_truth:
+      satellite_water_extent: null
+      flood_extent_map: null
+      official_report: null
+
+  - event_id: noru_flood_2022
+    display_name: "Noru Flood, Thailand - 28 Sep-15 Oct 2022"
+    country: Thailand
+    aoi:
+      lat_min: 12.0
+      lat_max: 18.5
+      lon_min: 98.5
+      lon_max: 106.0
+    centroid:
+      lat: 15.25
+      lon: 102.75
+    date_range:
+      start: "2022-09-28T00:00:00Z"
+      end: "2022-10-15T23:59:59Z"
+    forecast_init_times:
+      - "2022-09-28T00:00:00Z"
+      - "2022-09-29T00:00:00Z"
+      - "2022-09-30T00:00:00Z"
+    layers:
+      rainfall_forecast: true
+      rainfall_accumulation: true
+      flood_risk: true
+      warning_badges: true
+      satellite_flood_extent: true
+    ground_truth:
+      satellite_water_extent: null
+      flood_extent_map: null
+      official_report: null

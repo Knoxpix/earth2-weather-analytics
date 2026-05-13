@@ -1,3 +1,20 @@
 .venv-notebook/
 workspace/
 outputs/
+earth2studio-project/
+
+# Python / notebook artifacts
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Local environments and dependency caches
+.venv/
+.venv-cu/
+.hf-cache/
+
+# Build artifacts
+build/
+dist/
+wheels/
+*.egg-info/

@@ -7,7 +7,7 @@ name = "earth2-blueprint"
 version = "0.8.17"
 description = "Earth-2 Blueprint"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<3.13"
 dependencies = [
     "nv_dfm_core>=3.1.0,<3.2.0",
 ]
@@ -79,7 +79,7 @@ dev = [
 ]
 
 federation = [
-    "eccodeslib==2.44.0.1",
+    "eccodeslib==2.44.0.1; sys_platform != 'linux' or platform_machine != 'aarch64'",
     "nv_dfm_lib_common>=3.1.0,<3.2.0",
     "nv_dfm_lib_weather>=3.1.0,<3.2.0",
     "earth2studio[data]==0.10.0",
