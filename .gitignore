@@ -1,7 +1,6 @@
 .venv-notebook/
 workspace/
 outputs/
-earth2studio-project/
 
 # Python / notebook artifacts
 __pycache__/
@@ -18,3 +17,8 @@ build/
 dist/
 wheels/
 *.egg-info/
+
+# Local nested repo metadata / runtime logs
+.git.nested-backup/
+cufile.log
+=1.15.2
